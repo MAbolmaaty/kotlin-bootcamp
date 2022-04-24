@@ -1,3 +1,6 @@
+import java.util.*
+import kotlin.math.pow
+
 fun main() {
 //    println(1/2)
 //    println(1.0/2.0)
@@ -128,11 +131,123 @@ fun main() {
 
     // Strings
 
-    println("Hello Fish")
-    println("Hello" + " fish")
+//    println("Hello Fish")
+//    println("Hello" + " fish")
+//
+//    val numberOfFish = 5
+//    val numberOfPlants = 12
+//
+//    println("I have $numberOfFish fish and $numberOfPlants plants")
 
-    val numberOfFish = 5
-    val numberOfPlants = 12
+//    val fish = "fish"
+//    val plant = "plant"
+//    println(fish == plant)
+//    println(fish != plant)
 
-    println("I have $numberOfFish fish and $numberOfPlants plants")
+//    val numberOfFish = 50
+//    val numberOfPlants = 23
+//    if(numberOfFish > numberOfPlants) println("Good ratio!")
+//    else println("unhealthy ratio")
+
+//    // ////////////////////////////////////////// ranges
+//    val fish = 50
+//    if (fish in 1..50) println(fish)
+//
+    //for (i in 'b'..'g') print(i)
+    //for (i in 1..5) println(i)
+    //for (i in 5 downTo 1) println(i)
+    //for (i in 3..10 step 2) print(i)
+
+//    // (when) keyword is kotlin's way of doing switching
+//    when(fish) {
+//        0 -> println("Empty tank")
+//        50 -> println("Full tank")
+//        else -> println("Perfect!")
+//    }
+
+//    var welcomeMessage = "Hello and welcome to kotlin"
+//    when (welcomeMessage.length) {
+//        0 -> println("Nothing to say?")
+//        in 1..50 -> println("Perfect")
+//        else -> println("Too long!")
+//    }
+
+//    val trout: String = "trout"
+//    val haddock: String = "haddock"
+//    val snapper: String = "snapper"
+//
+//    println("i like eating $trout")
+//    println("i don't like eating $haddock")
+//    println("i like eating $snapper")
+
+//    val fishName = "trout"
+//
+//    when(fishName.length){
+//        0 -> println("Fish name cannot be empty")
+//        in 3..12 -> println("Good fish name")
+//        else -> println("Ok fish name")
+//    }
+
+    /**
+     * If your val variable value is a reference, then you cannot assign it
+     * a different reference later*/
+//    val myList = mutableListOf("tuna","salmon","shark")
+//    // error: val cannot be reassigned
+//    //myList = mutableListOf("koi","goldfish")
+    /**
+     * But if you're referencing something that is not immutable,
+     * it can still change
+     * val only applies to the reference, and it doesn't make the object
+     * it points to immutable*/
+//    println(myList.remove("shark"))
+
+//    // arrays
+//    var fish = 12
+//    var plants = 5
+//    val swarm = listOf(fish, plants)
+//    val school = arrayOf("tuna", "salmon", "shark")
+//
+//    // typed arrays
+//    val numbers = intArrayOf(1,2,3)
+//
+//    // untyped arrays
+//    val mix = arrayOf("fish", 2)
+//
+//    println(Arrays.toString(mix))
+
+//    // nest arrays
+//    var fish = 12
+//    var plants = 5
+//    val  swarm = listOf(fish, plants)
+//    val bigSwarm = arrayOf(swarm, arrayOf("dolphin", "whale", "orka"))
+//
+////    for (element in swarm) println(element)
+//
+//    for ((index, element) in swarm.withIndex()){
+//        println("Fish at $index is $element")
+//    }
+//
+////    val array = Array(5) {it * 3}
+////    println(array.asList())
+
+//    //quiz
+//    val array = Array(7){1000.0.pow(it)}
+//    val sizes = arrayOf("byte", "kilobyte", "megabyte", "gigabyte", "terabyte",
+//    "petabyte", "exabyte")
+//
+//    for ((i, value) in array.withIndex()){
+//        println("1 ${sizes[i]} = ${value.toLong()} bytes")
+//    }
+
+//    val numbers: MutableList<Int> = mutableListOf()
+//    for (i in 11..15)
+//        numbers.add(i)
+//
+//    println(numbers.toString())
+
+    //val strings: MutableList<String> = mutableListOf()
+
+//    repeat(2) {
+//        println("Happy Birthday!")
+//    }
 }

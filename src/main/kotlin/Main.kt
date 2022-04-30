@@ -1,7 +1,8 @@
+import java.lang.Math.random
 import java.util.*
 import kotlin.math.pow
 
-fun main() {
+fun main(args: Array<String>) {
 //    println(1/2)
 //    println(1.0/2.0)
 
@@ -250,4 +251,152 @@ fun main() {
 //    repeat(2) {
 //        println("Happy Birthday!")
 //    }
+
+//    println("Hello, ${args[0]}")
+
+//    val isUnit = println("This is an expression")
+//    println(isUnit)
+
+//    val temperature = 10
+////    val isHot = if (temperature > 50) true else false
+////    println(isHot)
+//
+//    val message = "You are ${ if (temperature > 50) "fried" else "safe" } fish"
+//    println(message)
+
+//    println(if (args[0].toInt() < 12) "Good morning, Kotlin" else "Good night, Kotlin")
+//    swim(2)
+
+    // filters
+    /**
+     * Filter, is a standard library function on list in kotlin
+     * By default, filter on a list is eager, That means every time you call filter,
+     * it creates a new list with the elements that pass through the filter*/
+    //eagerExample()
+    //val decorations = listOf ("rock", "pagoda", "plastic plant", "aligator", "flowerpot")
+//    println(decorations.filter { it[0] == 'p' })
+    /**
+     * for lazy behavior, you can use sequences,
+     * A sequence is a collection that can only look at one item at a time*/
+
+    // apply filter lazily
+    // filtered variable won't hold a new list, it'll hold a sequence of all
+    // the list elements and knowledge of the filter to apply to its elements
+    // whenever you access elements of the sequence, the filter is applied
+    // and results are returned to you
+//    val filtered = decorations.asSequence().filter { it[0] == 'p'}
+//    println(filtered)
+//    println(filtered.toList())
+
+//    val spices = listOf("curry", "pepper", "cayenne", "ginger", "red curry",
+//        "green curry", "red pepper")
+//    println(spices.filter { it.contains("curry") }.sortedBy { it.length })
+//    println(spices.filter { it.startsWith('c') && it.endsWith('e') })
+//    spices.take(3).filter { it.startsWith('c') }
+
+    /**
+     * kotlin also supports lambdas, in other languages these are called
+     * anonymous functions or function literals,
+     * instead of declaring a named function, we declare a function that has no name*/
+    //{ println("Hello") }()
+//    val swim = {println("swim \n")}
+//    swim()
+
+    //println(waterFilter(dirty))
+
+    /**
+     * filter takes a lambda and uses it to filter a list*/
+//    val list = listOf(1, 2, 3)
+//    list.filter { it == 2 }
+
+    /**
+     * random1 has a value assigned at compile time, and the value never changes
+     * when the variable is accessed
+     * random2 has a lambda assigned at compile time, and the lambda is
+     * executed every time the variable is referenced, returning a different value*/
+//    val random1 = random()
+//    val random2 = { random() }
+
+//    val rollDice = {
+//            sides: Int ->
+//        if (sides == 0) 0
+//        Random().nextInt(12) + 1}
+//
+//    val rollDice2: (Int) -> Int = { sides ->
+//        if (sides == 0) 0
+//        else Random().nextInt(sides) + 1
+//    }
+
+
 }
+
+/**
+ * Every function in kotlin returns something even when nothing
+ * is explicitly specified, A function like main returns a type
+ * unit which is kotlin's way of saying no value, And when a function
+ * returns unit, you don't have to specify it explicitly*/
+
+fun dayOfWeek() {
+    println("What day is it today?")
+    val day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
+    println(when(day){
+        1 -> "Sunday"
+        2 -> "Monday"
+        3 -> "Tuesday"
+        4 -> "Wednesday"
+        5 -> "Thursday"
+        6 -> "Friday"
+        7 -> "Saturday"
+        else -> "Time has stopped"
+    })
+}
+
+/**
+ * Parameters in kotlin can have a default value, This means when you call
+ * the function you don't have to specify a value every time for those parameters
+ * If the is missing, the default value is used*/
+
+fun swim(time: Int, speed: String = "fast"){
+    println("swimming $speed")
+}
+
+/**
+ * It is a best practice to put arguments without defaults first
+ * and then the ones with the defaults afterwards */
+
+fun eagerExample() {
+    val decorations = listOf("rock", "pagoda", "plastic plant", "alligator", "flowerpot")
+    // variable eager here will hold a new list
+    val eager = decorations.filter { it[0] == 'p'}
+    println(eager)
+}
+/**
+ * A higher-order function is really just any function that takes
+ * a function as the argument
+ * kotlin prefers function arguments to be the last parameter
+ * */
+fun feedFish(dirty: Int) = dirty + 10
+fun updateDirty(dirty: Int, operation: (Int) -> Int): Int {
+    return operation(dirty)
+}
+var dirty = 20
+val waterFilter: (Int) -> Int = { dirty -> dirty / 2 }
+
+fun dirtyProcessor() {
+    dirty = updateDirty(dirty, waterFilter)
+    // since feedFish is a name function and not a lambda, you'll need
+    // to use a double colon to pass it
+    dirty = updateDirty(dirty, ::feedFish)
+    /**
+     * when you combine higher-order functions with lambdas*/
+    dirty = updateDirty(dirty) {dirty -> dirty +50}
+}
+
+
+/**
+ * if you have too many parameters in your function, it might be an indicator
+ * that your function is doing too much*/
+
+/**
+ * Free functions or top level functions are functions that can be defined
+ * outside any in closing class */

@@ -1,7 +1,7 @@
 fun main(){
     /**
      * basic array*/
-    val interestingThings = arrayOf("Kotlin", "Programming", "Comic Books")
+//    val interestingThings = arrayOf("Kotlin", "Programming", "Comic Books")
     val interestingThings2 = listOf("Kotlin", "Programming", "Comic Books")
 //    println(interestingThings.size)
 //    println(interestingThings[0])
@@ -31,6 +31,26 @@ fun main(){
     /**
      * maps*/
 
-    val map = mapOf(1 to "a", 2 to "b", 3 to "c")
-    map.forEach { key, value ->  println("$key -> $value") }
+//    val map = mapOf(1 to "a", 2 to "b", 3 to "c")
+//    map.forEach { key, value ->  println("$key -> $value") }
+
+    /**
+     * by default a collection type in kotlin is immutable
+     * so that you can't add or subtract values from that collection
+     * once it's initially created */
+
+//    val interestingThings3 = mutableListOf("Kotlin", "Programming", "Comic Books")
+//    interestingThings3.add("Dogs")
+//
+//    val map2 = mutableMapOf(1 to "a", 2 to "b", 3 to "c")
+//    map2.put(4, "d")
+
 }
+
+fun sayHello(greeting: String, vararg itemsToGreet: String) {
+    itemsToGreet.forEach {
+        itemToGreet ->
+        println("$greeting $itemToGreet")
+    }
+}
+

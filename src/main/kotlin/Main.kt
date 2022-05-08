@@ -400,3 +400,52 @@ fun dirtyProcessor() {
 /**
  * Free functions or top level functions are functions that can be defined
  * outside any in closing class */
+
+/**
+ * Abstract classes and interfaces
+ * Both are classes that cannot be instantiated on their own,
+ * which means you cannot create objects of those types,
+ * The difference is that abstract classes have constructors while interfaces
+ * can't have any constructor logic
+ * Both interfaces and abstract classes can contain implementations of methods.
+ * On interfaces, we call them default implementations */
+
+/**
+ * Special Purpose classes
+ * Singletons
+ * Enums
+ * to create a singleton use the object keyword when you declare your class
+ * */
+
+object MobyDickWhale {
+    val author = "Herman Melville"
+    fun jump() {
+        // ...
+    }
+}
+
+enum class Color(val rgb: Int) {
+    RED(0xFF0000),
+    GREEN(0x00FF00),
+    BLUE(0x0000FF)
+}
+
+/**
+ * sealed class
+ * It's a class that can be subclassed but only inside the file
+ * which it's declared
+ * If you try to subclass it in a different file, you'll get an error
+ * Because the class and subclasses are in the same file
+ * kotlin will be able to know all subclasses statically
+ * that is at compile time
+ * */
+
+sealed class Seal
+
+class SeaLion: Seal()
+class Walrus: Seal()
+
+
+/**
+ * (lateinit) promises the kotlin compiler that the variable will be initialized
+ * before calling any operations on it*/
